@@ -1,10 +1,17 @@
 const express = require('express');
-
+const { insertToDB, getAll, deleteObject, getDocumentById, updateDocument } = require('./databaseHandler')
 const app = express();
 
 // View engine setup
-app.set('views', './views');
 app.set('view engine', 'hbs');
+app.use(express.urlencoded({ extended: true }))
+
+//
+const path = require('path')
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
+
 
 // Static Files
 app.use(express.static('public'))
@@ -14,7 +21,8 @@ app.use('/img', express.static(__dirname + 'public/images'))
 
 // index
 app.get('/', async (req, res) => {
-    res.render('home')
+    var result = await getAll("Products")
+    res.render('home', { products: result })
 })
 
 // All Products page

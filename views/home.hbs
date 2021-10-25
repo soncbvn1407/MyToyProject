@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <title>Home</title>
   <style>
@@ -16,7 +17,7 @@
   </style>
 </head>
 
-<body class="">
+<body class="test">
   <header>
     <!-- open header -->
     <nav>
@@ -24,8 +25,6 @@
         <ul id="desktop-nav-left">
           <li><a href="/">HOME</a></li>
           <li><a href="/allproducts/">ALL PRODUCTS</a></li>
-          <li> <a href="/edit/{{_id}}">Edit</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -60,28 +59,28 @@
     </div>
 
     <hr>
-    <table border="1" width="50%">
-      <tr>
-        <td>id</td>
-        <td>Name</td>
-        <td>Price</td>
-        <Td>Picture</Td>
-        <td>Edit</td>
-      </tr>
+
+    <div class="row row-cols-1 row-cols-md-5 g-6">
       {{#each products}}
-      <tr>
-        <td>
-          <a onclick="return confirm('Are your sure?')" href="/delete/{{_id}}"> {{_id}}</a>
-        </td>
-        <td>{{name}}</td>
-        <td>{{price}}</td>
-        <Td><img src="{{picURL}}" width="120" height="100" /></Td>
-        <td>
-          <a href="/edit/{{_id}}">Edit</a>
-        </td>
-      </tr>
+      <div class="col">
+        <div class="card h-100" style="width: 18rem;">
+          <img src="{{picURL}}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Id : {{_id}}</a></h5>
+            <p class="card-text">Product's name : {{name}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Price : {{price}}</li>
+          </ul>
+          <div class="card-body">
+            <a href="/edit/{{_id}}">Edit</a>
+            <hr>
+            <a onclick=" return confirm('Are you sure?')" href="/delete/{{_id}}">Delete</a>
+          </div>
+        </div>
+      </div>
       {{/each}}
-    </table>
+    </div>
   </main>
 
 </body>

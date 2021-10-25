@@ -64,14 +64,14 @@ body { background-color: aqua; }
         100% { color: #F8CD0A; }
         }
         @-o-keyframes my {
-        0% { color: #F8CD0A; }
+        0% { color: #000000; }
         50% { color: #fff; }
-        100% { color: #F8CD0A; }
+        100% { color: #000000; }
         }
         @keyframes my {
-        0% { color: #F8CD0A; }
+        0% { color: #000000; }
         50% { color: #fff; }
-        100% { color: #F8CD0A; }
+        100% { color: #000000; }
         }
         .test {
         background:#ffffff;
