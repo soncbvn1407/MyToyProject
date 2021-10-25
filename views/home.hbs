@@ -1,16 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Home</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Home</title>
+  <style>
+    .myDiv {
+      border: 5px outset red;
+      background-color: lightblue;
+      text-align: center;
+    }
+  </style>
 </head>
-<body>
-    <header>
-            <h1>This is Home Page</h1>
-    </header>
-    
+
+<body class="">
+  <header>
+    <!-- open header -->
+    <nav>
+      <div class="nav-left">
+        <ul id="desktop-nav-left">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/allproducts/">ALL PRODUCTS</a></li>
+          <li> <a href="/edit/{{_id}}">Edit</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h1 class="test" style="text-align: center;">This is Home Page</h1>
+    <div style="text-align: center;">
+      <a href="">
+        <img src="img/qc1.jpg" alt="qc1">
+      </a>
+    </div>
+  </header>
+  <!-- close header -->
+
+  <main>
+    <div style="width: 50%;">
+      <form action="/insert" method="post">
+        <div class="mb-3">
+          <label class="form-label" for="txtName"> Product Name</label>
+          <input type="text" class="form-control" name="txtName" id="txtName">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="txtPrice"> Price</label>
+          <input type="text" class="form-control" name="txtPrice" id="txtPrice">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="txtURL"> Picture</label>
+          <input type="text" class="form-control" name="txtURL" id="txtURL">
+          <span style="color: red;">{{picError}}</span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Insert">
+      </form>
+    </div>
+
+    <hr>
+    <table border="1" width="50%">
+      <tr>
+        <td>id</td>
+        <td>Name</td>
+        <td>Price</td>
+        <Td>Picture</Td>
+        <td>Edit</td>
+      </tr>
+      {{#each products}}
+      <tr>
+        <td>
+          <a onclick="return confirm('Are your sure?')" href="/delete/{{_id}}"> {{_id}}</a>
+        </td>
+        <td>{{name}}</td>
+        <td>{{price}}</td>
+        <Td><img src="{{picURL}}" width="120" height="100" /></Td>
+        <td>
+          <a href="/edit/{{_id}}">Edit</a>
+        </td>
+      </tr>
+      {{/each}}
+    </table>
+  </main>
+
 </body>
+
 </html>
