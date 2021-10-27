@@ -77,10 +77,10 @@ body { background-color: rgb(255, 255, 255); }
         background:#ffffff;
         font-size:24px;
         font-weight:bold;
-        -webkit-animation: my 700ms infinite;
-        -moz-animation: my 700ms infinite;
-        -o-animation: my 700ms infinite;
-        animation: my 700ms infinite;
+        -webkit-animation: my 6s infinite;
+        -moz-animation: my s infinite;
+        -o-animation: my 6s infinite;
+        animation: my 6s infinite;
         text-align: center;
         }
 

@@ -16,15 +16,16 @@
     }
   </style>
 </head>
+<hr>
+{{now}}
 
-<body class="">
+<body class="test">
   <header>
     <!-- open header -->
     <nav>
       <div class="nav-left">
         <ul id="desktop-nav-left">
           <a href="/">HOME</a>
-          <a href="/allproducts/">INSERT PRODUCTS</a>
         </ul>
       </div>
     </nav>
@@ -37,17 +38,24 @@
     </div>
   </header>
   <!-- close header -->
-
+  <hr>
+  <div>
+    <h2 style="background-color: black;">Insert Product</h2>
+  </div>
   <main>
-    <div style="width: 50%;">
+    <div style="width: 50%, text-align: center;">
       <form style="text-align: center;" action="/insert" method="post">
         <div class="mb-3">
           <label class="form-label" for="txtName"> Product Name</label>
           <input type="text" class="form-control" name="txtName" id="txtName">
+          <span style="color: red;">{{nameError}}</span>
+
         </div>
         <div class="mb-3">
           <label class="form-label" for="txtPrice"> Price</label>
           <input type="text" class="form-control" name="txtPrice" id="txtPrice">
+          <span style="color: red;">{{priceError}}</span>
+
         </div>
         <div class="mb-3">
           <label class="form-label" for="txtURL"> Picture</label>
