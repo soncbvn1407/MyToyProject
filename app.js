@@ -40,6 +40,9 @@ app.post('/insert', async (req, res) => {
     if (url.length == 0) {
         var result = await getAll("Products")
         res.render('home', { products: result, picError: 'Phai nhap Picture!' })
+
+    // if (price.isNaN(true)){
+    //     res.render('home', { products: result, picError: 'Phai nhap so' })
     } else {
         //xay dung doi tuong insert
         const obj = { name: name, price: price, picURL: url, cat: category }
@@ -64,10 +67,16 @@ app.post('/update', async (req, res) => {
     const id = req.body.txtId
     const name = req.body.txtName
     const price = req.body.txtPrice
-    let updateValues = { $set: { name: name, price: price } };
-
+    const url = req.body.txtURL
+    let updateValues = { $set: { name: name, price: price, picURL: url } };
+    // if (anh.endsWith('png')==false) {
+    //     res.render('edit', {picError: 'Please Enter URL Again!' })
+    if (url.length == 0) {
+        var result = await getAll("Products")
+        res.render('home', { products: result, picError: 'Phai nhap Picture!' })
+    } else {
     await updateDocument(id, updateValues, "Products")
-    res.redirect('/')
+    res.redirect('/')}
 })
 
 

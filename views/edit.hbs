@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Products</title>
 </head>
+
 <body>
     <h1>Update Product</h1>
     <form action="/update" method="post">
@@ -13,8 +15,12 @@
         Name : <input type="text" name="txtName" value="{{product.name}}">
         <Br>
         Price : <input type="text" name="txtPrice" value="{{product.price}}">
-        <br/>
+        <br />
+        Picture : <input type="text" name="txtURL" value="{{product.url}}">
+        <span style="color: red;">{{picError}}</span>
+        <br>
         <input type="submit" value="Update">
     </form>
 </body>
+
 </html>

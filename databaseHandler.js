@@ -1,7 +1,7 @@
 const {MongoClient,ObjectId} = require('mongodb')
 
-const DATABASE_URL = 'mongodb://tommy:123456abc@cluster0-shard-00-00.lkrga.mongodb.net:27017,cluster0-shard-00-01.lkrga.mongodb.net:27017,cluster0-shard-00-02.lkrga.mongodb.net:27017/GCH0901_DB?replicaSet=Cluster0-shard-0&ssl=true&authSource=admin'
-const DATABASE_NAME = 'GCH0901_DB'
+const DATABASE_URL = 'mongodb+srv://sonntgch:zxzcbvn123@cluster0.q2g2d.mongodb.net'
+const DATABASE_NAME = 'GCH0902_DB'
 
 async function updateDocument(id, updateValues,collectionName){
     const dbo = await getDatabase();

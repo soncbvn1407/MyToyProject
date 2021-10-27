@@ -17,14 +17,14 @@
   </style>
 </head>
 
-<body class="test">
+<body class="">
   <header>
     <!-- open header -->
     <nav>
       <div class="nav-left">
         <ul id="desktop-nav-left">
-          <li><a href="/">HOME</a></li>
-          <li><a href="/allproducts/">ALL PRODUCTS</a></li>
+          <a href="/">HOME</a>
+          <a href="/allproducts/">INSERT PRODUCTS</a>
         </ul>
       </div>
     </nav>
@@ -40,7 +40,7 @@
 
   <main>
     <div style="width: 50%;">
-      <form action="/insert" method="post">
+      <form style="text-align: center;" action="/insert" method="post">
         <div class="mb-3">
           <label class="form-label" for="txtName"> Product Name</label>
           <input type="text" class="form-control" name="txtName" id="txtName">
