@@ -20,18 +20,6 @@ app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/images'))
 
-// ngay thang
-function formatDate(date){
-    return new Date(date).toLocaleString("vi-VN")
-}
-
-// index
-app.get('/', async (req, res) => {
-    var result = await getAll("Products")
-    var time = new Date().toISOString()
-    res.render('home', { products: result, now:formatDate(time)})
-})
-
 // Insert Products
 app.post('/insert', async (req, res) => {
     const name = req.body.txtName
@@ -50,6 +38,10 @@ app.post('/insert', async (req, res) => {
     else if (price.length == 0) {
         var result = await getAll("Products")
         res.render('home', { products: result, nameError:null, priceError: "Vui Long Nhap Lai!" })
+    }
+    else if (url.endsWith('jpg')) {
+        var result = await getAll("Products")
+        res.render('home', { products: result, nameError:null, picError: "Ảnh trống hoặc ảnh không hợp lệ!" })
     }
     else {
         //xay dung doi tuong insert
@@ -105,4 +97,18 @@ app.get('/edit/:id', async (req,res) => {
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log('Server started on port 3000');
+})
+
+
+
+// ngay thang
+function formatDate(date){
+    return new Date(date).toLocaleString("vi-VN")
+}
+
+// index
+app.get('/', async (req, res) => {
+    var result = await getAll("Products")
+    var time = new Date().toISOString()
+    res.render('home', { products: result, now:formatDate(time)})
 })
